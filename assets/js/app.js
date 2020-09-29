@@ -69,7 +69,7 @@ d3.csv("assets/data/data.csv").then(function(timesData) {
     .attr("opacity", ".5");
 
     var textGroup = chartGroup.selectAll("textGroup")
-    .attr("class", "stateText")
+    
     .data(timesData)
     .enter()
     .append("text")
@@ -77,8 +77,8 @@ d3.csv("assets/data/data.csv").then(function(timesData) {
       return data.abbr;
     })
     .attr("dx", d => xLinearScale(d.income))
-    .attr("dy", d => yLinearScale(d.poverty));
-    
+    .attr("dy", d => yLinearScale(d.poverty))
+    .attr("class", "stateText");
     
 
     // Step 6: Initialize tool tip
