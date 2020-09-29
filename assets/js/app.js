@@ -39,7 +39,7 @@ d3.csv("assets/data/data.csv").then(function(timesData) {
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(timesData, d => d.poverty)])
+      .domain([4, d3.max(timesData, d => d.poverty)+4])
       .range([height, 0]);
 
     // Step 3: Create axis functions
@@ -68,8 +68,8 @@ d3.csv("assets/data/data.csv").then(function(timesData) {
     .attr("fill", "lightblue")
     .attr("opacity", ".5");
 
-    var textGroup = svg.selectAll("textGroup")
-    // .attr("class", "stateText")
+    var textGroup = chartGroup.selectAll("textGroup")
+    .attr("class", "stateText")
     .data(timesData)
     .enter()
     .append("text")
